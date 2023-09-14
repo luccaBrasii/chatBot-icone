@@ -6,10 +6,6 @@ html {
     box-sizing: border-box;
 }
 
-body {
-    height: 2000px;
-}
-
 .buttonSection {
     width: 200px;
     min-height: 200px;
@@ -28,18 +24,12 @@ body {
     display: none;
 }
 
-.chatBotExpandido {
-    display: inline;
-}
-
-.chatBotContraido {
-    display: none;
-}
-
 .chatBot iframe {
     width: 100%;
     height: 100%;
+    border: 1px solid black;
 }
+
 
 .conteudo-x {
     position: absolute;
@@ -58,26 +48,48 @@ body {
     transition: 1s;
 }
 
-/*****************************/
+/**************
+IFRAME / CHATBOT
+***************/
+
+.chatBotExpandido {
+    display: inline;
+
+}
+
+.chatBotContraido {
+    display: none;
+    opacity: 0;
+}
+
+.contraiChat {
+    animation: contraiChat 0.9s ease-in-out;
+}
+
+.expandeChat {
+    animation: expandeChat 0.9s ease-in-out;
+}
+
+/**************
+BOTAO DO CHATBOT PARA EXPANDIR
+***************/
 
 .expande {
-    animation: expandir 1s ease;
+    animation: expandir 1s ease-in-out;
     width: 500px;
-    background-image: none;
-    background-color: transparent;
-    border-radius: 8px;
     height: 500px;
 }
 
 .contrai {
-    animation: contrai 1s ease;
+    animation: contrai 1s ease-in-out;
     width: 200px;
     height: 200px;
-    background-image: url('/img/bot.jpg');
-    background-position: center;
-    background-size: cover;
+
 }
 
+/**************
+ANIMAÇÕES
+***************/
 
 @keyframes expandir {
     0% {
@@ -106,6 +118,50 @@ body {
         height: 200px;
     }
 }
+
+@keyframes contraiChat {
+    0% {
+        border-radius: 5%;
+        opacity: 1;
+    }
+
+    25% {
+        border-radius: 15%;
+    }
+
+    50% {
+        border-radius: 30%;
+    }
+
+    100% {
+        border-radius: 50%;
+        opacity: 0;
+    }
+}
+
+@keyframes expandeChat {
+    0% {
+        border-radius: 50%;
+        opacity: 0.2;
+    }
+
+    25% {
+        border-radius: 30%;
+    }
+
+    50% {
+        border-radius: 15%;
+    }
+
+    100% {
+        border-radius: none;
+        opacity: 1;
+    }
+}
+
+/**************
+RESPONSIVIDADE
+***************/
 
 @media only screen and (max-width: 768px) {
 
